@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paras Mittal - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #555;
+            --bg-color: #f4f7f6;
+            --card-bg: #fff;
+            --text-color: #333;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header & Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .hero:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0 5px;
+        }
+
+        .hero .job-title {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            font-weight: 400;
+        }
+
+        .hero .contact-info {
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .hero .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .hero .contact-info a:hover {
+            color: #2a65a9;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: top 0.3s;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            display: block;
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+            border-radius: 8px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 20px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: var(--shadow-light);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        section:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            font-size: 2em;
+        }
+        
+        section h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-section p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Experience & Projects */
+        .item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .item:hover {
+            transform: scale(1.02);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        
+        .item-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+            color: var(--primary-color);
+        }
+        
+        .item-header .dates {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        .item-details h4 {
+            margin: 0 0 10px 0;
+            color: var(--secondary-color);
+            font-weight: 400;
+        }
+        
+        .item-details ul {
+            padding-left: 25px;
+            margin: 0;
+        }
+        
+        .item-details li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills */
+        .skills-section ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .skills-section li {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .skills-section li:hover {
+            background-color: #2a65a9;
+        }
+
+        /* Education */
+        .education-item {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .education-item h3 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .education-item p {
+            margin: 5px 0 0;
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .hero {
+                padding: 40px 15px;
+            }
+            .hero h1 {
+                font-size: 2em;
+            }
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .item-header .dates {
+                margin-top: 5px;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="hero">
+            <img src="my.png" alt="Paras Mittal" class="profile-photo">
+            <h1>Paras Mittal</h1>
+            <div class="job-title">Data-driven Software Developer & Validation Engineer</div>
+            <div class="contact-info">
+                <p>Gurugram, Haryana | <a href="tel:9878445969">9878445969</a> | <a href="mailto:officialparas2k17119@gmail.com">officialparas2k17119@gmail.com</a></p>
+                <p><a href="https://www.linkedin.com/in/paras-mittal-75123019b/" target="_blank">LinkedIn Profile</a></p>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                A data-driven Software Developer and Validation Engineer with over 5 years of experience designing, automating, and validating production equipment and testing systems. I have a proven track record of developing test setups for PCBAs and industrial products that ensure regulatory compliance and efficiency. My expertise spans a wide range of technologies, including PLC/HMI systems, communication protocols (CAN, RS485/RS232, UART), Python scripting, and full-stack web development. I am skilled in leveraging data analytics to optimize testing workflows, improve quality assurance, and drive informed decision-making.
+            </p>
+        </section>
+
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Senior Engineer | Exicom Tele-System Limited</h3>
+                    <div class="dates">JUNE 2020 - PRESENT</div>
+                </div>
+                <div class="item-details">
+                    <h4>Haryana, India</h4>
+                    <ul>
+                        <li>**Test Automation & System Design:** Deployed self-sufficient testing equipment for Electric Vehicle Supply Equipment and Telecom Power PCBAs, significantly enhancing operational efficiency by **40%**.</li>
+                        <li>**Full-Stack & Data-Driven Solutions:** Developed a full-stack, multi-user web application using Python, C#, and JAVA for real-time data processing, which improved production efficiency by **55%**.</li>
+                        <li>**Hardware & Protocol Integration:** Integrated physical components and various communication protocols, reducing system downtime by **37%**.</li>
+                        <li>**Analytics and Process Optimization:** Applied business data analytics to transform raw data into actionable insights, leading to a **27%** improvement in overall productivity.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Intern | Priority System Pvt. Limited</h3>
+                    <div class="dates">JULY 2019 - AUGUST 2019</div>
+                </div>
+                <div class="item-details">
+                    <h4>Mohali, Punjab, India</h4>
+                    <ul>
+                        <li>**PLC & Industrial Systems Engineering:** Fabricated industrial-level PLC programs for manufacturing, managing end-to-end system development.</li>
+                        <li>**Custom Machinery Development:** Contributed to the design and fabrication of specialized industrial equipment.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="item">
+                <div class="item-header">
+                    <h3>4-Wheeler Parking Solutions Web-Application</h3>
+                    <div class="dates">AUGUST 2025</div>
+                </div>
+                <div class="item-details">
+                    <p>Engineered a full-stack web application with a Python/Flask backend and an intuitive user interface (HTML5, CSS, Bootstrap). The system was designed to handle over **5,000 users daily** using a SQLite3 database for robust data management.</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Real-Time FTY Tracking System</h3>
+                    <div class="dates">JUNE 2025</div>
+                </div>
+                <div class="item-details">
+                    <p>Streamlined and restructured a real-time FTY (First-Time Yield) tracking system for Automatic Testing Equipment. The system provided live data visualization, reducing data retrieval time by **90%** and enabling a **25%** faster defect resolution process.</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Telecom Power Racks Testing Automation</h3>
+                    <div class="dates">JANUARY 2025</div>
+                </div>
+                <div class="item-details">
+                    <p>Upgraded the testing process for Telecom Power Racks to non-human dependency setups using Python. This reduced manual testing time by **75%** and improved data accuracy by **15%**.</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <h3>Automatic Testing Equipment for EVDC Chargers</h3>
+                    <div class="dates">JUNE 2024</div>
+                </div>
+                <div class="item-details">
+                    <p>Developed equipment for EVDC Chargers that enabled the real-time collection of over **100 data points per test cycle**. The accompanying web application provided a centralized dashboard, improving performance analysis and reporting efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python (Automation, Scripting, Data Analytics)</li>
+                <li>C#</li>
+                <li>JAVA</li>
+                <li>SQL & Database Management</li>
+                <li>UI/UX Test Setup Design</li>
+                <li>PLC Programming (Siemens, Omron, Mitsubishi)</li>
+                <li>Pneumatics & Hydraulic Systems</li>
+                <li>Communication Protocols (CAN, RS485/RS232, UART, Profi-Net)</li>
+                <li>Full-Stack Web Applications</li>
+                <li>Data Processing & Visualization</li>
+                <li>Collaboration & Problem-Solving</li>
+                <li>Business Data Analytics</li>
+                <li>Attention to Detail</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Science in Data Science and its Applications</h3>
+                <p>Indian Institute of Technology | Chennai, TL</p>
+                <p>AUG 2026 | 7.5 CGPA</p>
+            </div>
+            <div class="education-item">
+                <h3>Diploma in Electronics Engineering</h3>
+                <p>Indo-Swiss Training Center, CSIR-CSIO | Chandigarh, Punjab</p>
+                <p>AUG 2020 | 82.3% (First Division)</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Paras Mittal. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust for sticky nav height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
